@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <!-- ChangeSet to initialize survey -->
+    <changeSet author="admin" id="1">
+        <insert tableName="surveys">
+            <column name="id" value="survey-1"/>
+            <column name="title" value="Employee Happiness Survey"/>
+            <column name="questions">
+                <![CDATA[
+                [
+                    {
+                        "questionId": "question-1",
+                        "order": 1,
+                        "title": "How satisfied are you with your job?",
+                        "type": "SELECT",
+                        "options": ["Very Satisfied", "Satisfied", "Neutral", "Dissatisfied", "Very Dissatisfied"],
+                        "commentEnabled": true,
+                        "commentPlaceholder": "Please provide additional feedback"
+                    },
+                    {
+                        "questionId": "question-2",
+                        "order": 2,
+                        "title": "What can we improve?",
+                        "type": "COMMENT",
+                        "commentEnabled": true,
+                        "commentPlaceholder": "Please write your ideas"
+                    }
+                ]
+                ]]>
+            </column>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
